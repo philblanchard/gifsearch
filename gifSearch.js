@@ -25,7 +25,7 @@ $("#bigOlButton").on("click", function(event){
 
 function gifIt(a) {
     $.ajax({
-        url: "http://api.giphy.com/v1/gifs/search",
+        url: "https://api.giphy.com/v1/gifs/search",
         method: "GET",
         data: {"api_key" : "BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9",
         "q": a,
