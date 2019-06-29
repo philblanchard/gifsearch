@@ -1,7 +1,9 @@
 var searchTerm;
 var searches = [];
 var database = firebase.database();
+var favs = [];
 
+cookieReader();
 
 $("#bigOlButton").on("click", function(event){
     event.preventDefault();
@@ -68,18 +70,36 @@ $(document).on("click", ".gif", function() {
     }
   });
 
+function cookieReader(){
+    var cookiefavs = Cookies.get('favs');
+    console.log(cookiefavs);
+    for (a in cookiefavs){
+        buttonMaker(cookiefavs[a]);
+    }
+}
 
-$(document).on("dblclick", ".gif", function(){
-    
+function carousel(button){
     var favCarousel = $("<div>");
     favCarousel.attr("class", "carousel-item" );
     var whatever = $(this).attr("data-animate");
     console.log(whatever);
     var imgInCarousel = $("<img>");
-    imgInCarousel.attr({"src": $(this).attr("data-animate"), "class":"d-block w-100"});
+    imgInCarousel.attr({"src": button, "class":"d-block w-100"});
     console.log(imgInCarousel);
     $(favCarousel).append(imgInCarousel);
     $(".carousel-inner").append(favCarousel);
+
+}
+
+$(document).on("dblclick", ".gif", function(){
+    
+    favs.push($(this).attr("data-animate"));
+
+    var jsonString = JSON.stringify(favs);
+    Cookies.set('favs', favs);
+
+    carousel($(this).attr("data-animate"));
+
 });
 
 $(document).on("click", ".btn", function(){
