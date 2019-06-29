@@ -74,7 +74,7 @@ function cookieReader(){
     var cookiefavs = Cookies.get('favs');
     console.log(cookiefavs);
     for (a in cookiefavs){
-        buttonMaker(cookiefavs[a]);
+        carousel(cookiefavs[a]);
     }
 }
 
