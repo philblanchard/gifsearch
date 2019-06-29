@@ -11,3 +11,5 @@ Every unqiue search is turned into a button and stored in FireBase.
 When you load up the page, it will show you all of the unique searches as buttons.
 
 Clicking the button will run that Giphy search.
+
+The page should be mobile responsive and play nice with your phones.
