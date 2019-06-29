@@ -9,7 +9,7 @@ cookieReader(favs);
 
 $("#bigOlButton").on("click", function(event){
     event.preventDefault();
-    searchTerm = $("#whatAreWeLookingFor").val().trim().toUpperCase();
+    searchTerm = $("#whatAreWeLookingFor").val().trim().toUpperCase().split(',').join(' ');
     
     // console.log(searchTerm);
     gifIt(searchTerm);
