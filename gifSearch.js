@@ -9,7 +9,8 @@ cookieReader(favs);
 
 $("#bigOlButton").on("click", function(event){
     event.preventDefault();
-    searchTerm = $("#whatAreWeLookingFor").val().trim();
+    searchTerm = $("#whatAreWeLookingFor").val().trim().toUpperCase();
+    
     // console.log(searchTerm);
     gifIt(searchTerm);
     if (!searches.includes(searchTerm)){
