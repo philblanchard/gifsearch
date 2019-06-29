@@ -71,8 +71,9 @@ $(document).on("click", ".gif", function() {
   });
 
 function cookieReader(){
-    var cookiefavs = Cookies.get('favs');
+    var cookiefavs = JSON.parse(Cookies.get('favs'));
     console.log(cookiefavs);
+    
     for (a in cookiefavs){
         carousel(cookiefavs[a]);
     }
@@ -81,8 +82,8 @@ function cookieReader(){
 function carousel(button){
     var favCarousel = $("<div>");
     favCarousel.attr("class", "carousel-item" );
-    var whatever = $(this).attr("data-animate");
-    console.log(whatever);
+    // var whatever = $(this).attr("data-animate");
+    // console.log(whatever);
     var imgInCarousel = $("<img>");
     imgInCarousel.attr({"src": button, "class":"d-block w-100"});
     console.log(imgInCarousel);
