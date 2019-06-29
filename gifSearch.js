@@ -3,7 +3,9 @@ var searches = [];
 var database = firebase.database();
 var favs = [];
 
-cookieReader();
+
+favs = JSON.parse(Cookies.get('favs'));
+cookieReader(favs);
 
 $("#bigOlButton").on("click", function(event){
     event.preventDefault();
@@ -70,12 +72,11 @@ $(document).on("click", ".gif", function() {
     }
   });
 
-function cookieReader(){
-    var cookiefavs = JSON.parse(Cookies.get('favs'));
-    console.log(cookiefavs);
+function cookieReader(cookie){
+ 
     
-    for (a in cookiefavs){
-        carousel(cookiefavs[a]);
+    for (a in cookie){
+        carousel(cookie[a]);
     }
 }
 
@@ -96,7 +97,7 @@ $(document).on("dblclick", ".gif", function(){
     
     favs.push($(this).attr("data-animate"));
 
-    var jsonString = JSON.stringify(favs);
+    
     Cookies.set('favs', favs);
 
     carousel($(this).attr("data-animate"));
